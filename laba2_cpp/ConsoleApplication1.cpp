@@ -16,6 +16,9 @@ void sysout(double** a, double* y, int n)
 	}
 	return;
 }
+
+
+
 double* gauss(double** a, double* y, int n)
 {
 	double* x, max;
@@ -112,10 +115,10 @@ int main()
 {
 	setlocale(LC_ALL, "Russian");
 	double** a, * y, * x;
-	int n = 7;
+	int n = 3;// номер по списку + 3. Я 12-й
 	a = new double* [n];
 	y = new double[n];
-	for (int i = 0; i < n; i++)
+	for (int i = 0; i < n; i++)//инициализация матрицы гильберта
 	{
 		a[i] = new double[n];
 		for (int j = 0; j < n; j++)
@@ -123,21 +126,21 @@ int main()
 			a[i][j] = 1.0 / ((i + 1) + (j + 1) - 1.0);
 		}
 	}
-	for (int i = 0; i < n; i++)
+	for (int i = 0; i < n; i++)// Свободный член системы уравнений задайте в виде fi = n/i^2
 	{
-		y[i] = (double)(n / ((i + 1) * (i + 1)));
+		y[i] = ((double)n / ((i + 1) * (i + 1)));
 	}
 	sysout(a, y, n);
-	/* cout << "\nС выбором" << endl;
+	 cout << "\nС выбором" << endl;
 	 x = gauss(a, y, n);
 	 cout << endl;
 	 for (int i = 0; i < n; i++)
-		 cout << "x[" << i + 1 << "]=" << x[i] << endl;*/
-	cout << "\nБез выбора" << endl;
+		 cout << "x[" << i + 1 << "]=" << x[i] << endl;
+	/*cout << "\nБез выбора" << endl;
 	x = gauss2(a, y, n);
 	cout << endl;
 	for (int i = 0; i < n; i++)
-		cout << "x[" << i + 1 << "]=" << x[i] << endl;
+		cout << "x[" << i + 1 << "]=" << x[i] << endl;*/
 
 	return 0;
 }
