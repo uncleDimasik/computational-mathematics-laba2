@@ -17,4 +17,4 @@ def printMatrix(n):
 
 
 # 12+3
-print(LA.cond(printMatrix(12+3)))
+print(LA.cond(printMatrix(3)))

@@ -115,12 +115,12 @@ int main()
 {
 	setlocale(LC_ALL, "Russian");
 	double** a, * y, * x;
-	int n = 3;// номер по списку + 3. Я 12-й
-	a = new double* [n];
+	int n = 12+3;// номер по списку + 3. Я 12-й
+	a = new double* [n];//rowCount
 	y = new double[n];
 	for (int i = 0; i < n; i++)//инициализация матрицы гильберта
 	{
-		a[i] = new double[n];
+		a[i] = new double[n]; //made a new column
 		for (int j = 0; j < n; j++)
 		{
 			a[i][j] = 1.0 / ((i + 1) + (j + 1) - 1.0);
@@ -131,16 +131,16 @@ int main()
 		y[i] = ((double)n / ((i + 1) * (i + 1)));
 	}
 	sysout(a, y, n);
-	 cout << "\nС выбором" << endl;
+	 /*cout << "\nС выбором" << endl;
 	 x = gauss(a, y, n);
 	 cout << endl;
 	 for (int i = 0; i < n; i++)
-		 cout << "x[" << i + 1 << "]=" << x[i] << endl;
-	/*cout << "\nБез выбора" << endl;
+		 cout << "x[" << i + 1 << "]=" << x[i] << endl;*/
+	cout << "\nБез выбора" << endl;
 	x = gauss2(a, y, n);
 	cout << endl;
 	for (int i = 0; i < n; i++)
-		cout << "x[" << i + 1 << "]=" << x[i] << endl;*/
+		cout << "x[" << i + 1 << "]=" << x[i] << endl;
 
 	return 0;
 }
